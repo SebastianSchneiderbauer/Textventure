@@ -14,7 +14,7 @@ namespace Textventure
     {
         static void Main()
         {
-            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\pics\test1.jpg");
+            string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\pics\test3.png");
             int width = 50 * 2;  //double your width
             int height = 50;  // keep the height normal
 
