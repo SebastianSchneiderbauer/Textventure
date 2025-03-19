@@ -3,9 +3,10 @@ using Emgu.CV;
 using System.Drawing;
 using System;
 
-//Install - Package Emgu.CV
+//wüst maybe über die Nugget Console installieren vorm starten :)
+//Install-Package Emgu.CV
 //Install-Package Emgu.CV.Bitmap
-//Install - Package Emgu.CV.runtime.windows
+//Install-Package Emgu.CV.runtime.windows
 
 namespace Textventure
 {
@@ -19,13 +20,20 @@ namespace Textventure
             Console.SetBufferSize(400, 200);
             string imagePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\pics\test4.png");
 
+            int imageHeight = 50; //you should use this as a fixed value, and proportionally calculate the width. If that would go outside the bounds, proportionally calculate the height based on the max width
             int imageWidth = 50 * 2;  //double your width
-            int imageHeight = 50;
 
-            ConvertImageToAscii(imagePath, imageWidth, imageHeight);
+
+            PrintImageToConsole(imagePath, imageWidth, imageHeight);
+            PrintText();
         }
 
-        static void ConvertImageToAscii(string imagePath, int width, int height) //des wird nimma augriffn des is so 50% ChatGPT und 50% Beten
+        static void PrintText(){
+            Console.SetCursorPosition(4, 55);
+            Console.WriteLine("Example");
+        }
+
+        static void PrintImageToConsole(string imagePath, int width, int height) //des wird nimma augriffn des is so 50% ChatGPT und 50% Beten
         {
             //handle error case of image being too large
             if (width > screenWidth || width < 0) {
@@ -104,9 +112,6 @@ namespace Textventure
                 Console.WriteLine(horizontalMidBar);
             }
             Console.WriteLine(horizontalTopBar);
-
-            Console.SetCursorPosition(4,55); Console.WriteLine("EXAMPLE TEXT");
-            //TODO: text und optionen printen
         }
     }
 }
