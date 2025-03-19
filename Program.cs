@@ -27,6 +27,16 @@ namespace Textventure
 
         static void ConvertImageToAscii(string imagePath, int width, int height) //des wird nimma augriffn des is so 50% ChatGPT und 50% Beten
         {
+            //handle error case of image being too large
+            if (width > screenWidth || width < 0) {
+                width = screenWidth;
+            }
+
+            if (height > screenHeight || height < 0)
+            {
+                height = screenHeight;
+            }
+
             Mat image = CvInvoke.Imread(imagePath, ImreadModes.Grayscale);
 
             CvInvoke.Resize(image, image, new Size(width, height));
